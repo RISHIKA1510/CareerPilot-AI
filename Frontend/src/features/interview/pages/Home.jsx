@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "../style/home.scss"
 import { useInterview } from '../hooks/useInterview.js'
 import { useNavigate } from 'react-router'
+import { useAuth } from '../../auth/hooks/useAuth.js'
 
 const Home = () => {
 
@@ -11,6 +12,18 @@ const Home = () => {
     const [resumeFile, setResumeFile] = useState(null)
 
     const navigate = useNavigate()
+    const { handleLogout } = useAuth()
+
+    const onLogout = async () => {
+
+    const success = await handleLogout()
+
+    if (success) {
+        navigate("/login", { replace: true })
+    } else {
+        alert("Logout failed. Please try again.")
+    }
+}
 
     const handleGenerateReport = async () => {
 
@@ -45,6 +58,34 @@ const Home = () => {
 
     return (
         <div className='home-page'>
+            <nav className='career-navbar'>
+    <div className='career-brand'>
+        CareerPilot <span>AI</span>
+    </div>
+
+    <button
+        type='button'
+        className='logout-btn'
+        onClick={onLogout}
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        >
+            <path d="M10 17l5-5-5-5" />
+            <path d="M15 12H3" />
+            <path d="M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5" />
+        </svg>
+        Logout
+    </button>
+</nav>
 
             {/* Page Header */}
             <header className='page-header'>
@@ -71,7 +112,9 @@ const Home = () => {
                             placeholder={`Paste the full job description here...\ne.g. 'Senior Frontend Engineer at Google requires proficiency in React, TypeScript, and large-scale system design...'`}
                             maxLength={5000}
                         />
-                        <div className='char-counter'>0 / 5000 chars</div>
+                        <div className='char-counter'>
+                            {jobDescription.length} / 5000 chars
+                        </div>
                     </div>
 
                     {/* Vertical Divider */}
