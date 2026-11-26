@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router'
 
 const Home = () => {
 
-    const { loading, generateReport,reports } = useInterview()
+    const { loading, generateReport, reports = [] } = useInterview()
     const [ jobDescription, setJobDescription ] = useState("")
     const [ selfDescription, setSelfDescription ] = useState("")
     const [resumeFile, setResumeFile] = useState(null)
@@ -172,8 +172,8 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* Recent Reports List */}
-            {reports.length > 0 && (
+           {/* Recent Reports List */}
+           {Array.isArray(reports) && reports.length > 0 && (
                 <section className='recent-reports'>
                     <h2>My Recent Interview Plans</h2>
                     <ul className='reports-list'>
