@@ -1,16 +1,60 @@
-# React + Vite
+# CareerPilot AI – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CareerPilot AI is an AI-powered interview preparation and resume optimization platform. The frontend provides a responsive and user-friendly interface for personalized interview preparation.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User registration, login and logout
+- Resume upload in PDF format
+- Job description analysis
+- AI-generated technical and behavioral interview questions
+- Personalized interview preparation strategy
+- Job match score analysis
+- Resume PDF generation and download
+- Previous interview report history
+- Responsive dark-themed dashboard
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React.js
+- Vite
+- JavaScript
+- SCSS
+- Axios
+- React Router
 
-## Expanding the ESLint configuration
+## Local Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open http://localhost:5173 in your browser.
+
+Make sure the backend server is running on port 3000.
+
+## Production Build
+
+```bash
+npm run build
+```
+
+## Deployment
+
+The frontend is deployed using Vercel and communicates with the backend hosted on Render.
+
+## Live Demo
+
+https://career-pilot-ai-mu-smoky.vercel.app
+
+## Project Documentation
+
+For complete project information and screenshots, refer to the [main README](../README.md).
